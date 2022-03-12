@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undifine</title>
+  </head>
+  <body>
+    <script>
+      let name;
+      if (name == undefined) {
+        console.info("UNDIFINED");
+      } else {
+        console.info(`DEFINED value ${name}`);
+      }
+
+      let person = ["Eko", "Wawan", "Setiawan"];
+      if (person[3] == undefined) {
+        console.error("ARRAY UNDEFINED");
+      } else {
+        console.info("ARRAY DEFINED");
+      }
+
+      let newObj = {};
+      if (newObj.name == undefined) {
+        console.error("OBJECT UNDEFINED");
+      } else {
+        console.info("OBJECT DEFINED");
+      }
+    </script>
+  </body>
+</html>

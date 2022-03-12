@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Alert</title>
+  </head>
+  <body>
+    <script>
+      /* promt dan confirm nilainya bolean jika true akan di eksekusi
+        jika false tidak akan dieksekusi */
+      //   alert("Selamat belajar javascript dasar");
+      /* popup promt */
+      //   const name = prompt("Siapa nama anda?");
+      //   alert(`Hello ${name}`);
+
+      /* confirm */
+      const masuk = confirm("Anda yakin mau masuk?");
+      if (masuk) {
+        const nama = prompt("Siapa nama anda?");
+        if (nama) {
+          alert(`Selamat datang ${nama}`);
+        } else {
+          alert("anda keluar");
+        }
+      } else {
+        alert("Good By");
+      }
+    </script>
+  </body>
+</html>

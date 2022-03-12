@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Array</title>
+  </head>
+  <body>
+    <script>
+      const names = [];
+      names.push("Wawan Setiawan", "Jejen");
+      names.push("Beny", "Joko", "Hamdan", "Ataki");
+
+      console.table(names);
+
+      names[0] = "Programer";
+      names[1] = "Zaman";
+      names[2] = "Now";
+
+      delete names[0];
+      delete names[2];
+
+      names.push("baru");
+
+      names[0] = "di tambah lagi";
+      names[2] = "di tambah lagi";
+
+      /* bisa menambahkan array didalam array tidak ada batasannya */
+      names.push(["tambah", "lagi", "arraynya", "ada", 100]);
+      console.info(names);
+    </script>
+  </body>
+</html>

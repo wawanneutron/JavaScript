@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Rest Parameter</title>
+  </head>
+  <body>
+    <script>
+      /* function rest parameter parameter yang berubah menjadi array
+        sehingga bisa mengambil data dengan cara menggunakan for of */
+      function sum(name, ...data) {
+        let item = null;
+        for (const value of data) {
+          item += value;
+        }
+        document.writeln(`<p>${name} ${item}</p>`);
+      }
+      sum("Apel", 80, 130, 40, 240);
+      sum("Melon", 20, 30, 40, 50);
+      sum("Semangka", 50, 30, 40, 240);
+      /*ketika kita sudah terlanjur mempunyai data array,
+      kita bisa menggunakan fitur spread syntax,
+      untuk menjadikan data array menjadi rest parameter,
+      dengan menggunakan (... titik tiga dilanjutkan dengan nama arraynya)
+      */
+      const jumlahRambutan = [5, 10, 20, 20, 30, 30];
+      sum("Rambutan", ...jumlahRambutan);
+    </script>
+  </body>
+</html>

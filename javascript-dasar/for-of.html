@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Of</title>
+  </head>
+  <body>
+    <script>
+      /* for of mengambil value dari iterable object seperti array, string, dll
+        tidak bisa digunakan pada object karena object bukan iterable */
+      const names = ["Wawan setiawan", "Lyla", "Haris", "Erin", "Gina", "Ria"];
+      for (const value of names) {
+        document.writeln(`<p>${value}</p>`);
+      }
+
+      /* dicoba pada object maka akan terjadi error
+      "person is not iterable" */
+      //   const person = {
+      //     firstName: "Wawan",
+      //     lastName: "Setiawan",
+      //     country: "Indonesia",
+      //     age: 24,
+      //   };
+      //   for (const property of person) {
+      //     document.writeln(`<p>${property}</p>`);
+      //   }
+    </script>
+  </body>
+</html>

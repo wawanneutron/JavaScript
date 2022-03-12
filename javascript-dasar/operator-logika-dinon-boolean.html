@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Logika di Non Boolean</title>
+  </head>
+  <body>
+    <script>
+      /*
+        (Truthy)
+        operator logika OR di non boolean
+        dibaca dari kiri kenanan.
+        mengambil nilai pertama yang truthy,
+        jika keduanya true data pertama yang diambil,
+        jika keduanya falsy,
+        maka data ke dua yang diambil
+        */
+      //   console.info("hello" || ""); //hello
+      //   console.info("" || []); // []
+      //   console.info("0" || "NOL"); // "0"
+      //   console.info(0 || "NOL"); // "NOL"
+      //   console.info("NULL" || null); // "NULL"
+      //   console.info(undefined || "UNDEFINED"); // "UNDEFINED"
+      //   console.info(undefined || NaN); // Nan
+
+      /*
+        (Falsy)
+        Kebalikan dari OR
+        operator logika AND di non boolean
+        dibaca dari kiri kenanan.
+        mengambil nilai pertama yang falsy,
+        jika keduanya falsy /false,
+        maka data pertama yang diambil,
+        jika keduanya truthy / true,
+        maka data ke dua yang diambil
+        */
+      console.info("hello" && ""); //''
+      console.info("" && []); // ""
+      console.info("0" && "NOL"); // "NOL"
+      console.info(0 && "NOL"); // 0
+      console.info("NULL" && null); // null
+      console.info("UNDEFINED" && undefined); // undefined
+      console.info(0 && NaN); // Nan
+
+      const person = {
+        firstName: "Wawan",
+        lastName: "Setiawan",
+      };
+      const name = person.firstName || person.lastName;
+      document.writeln(`Hello ${name}`);
+    </script>
+  </body>
+</html>

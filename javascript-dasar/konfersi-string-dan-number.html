@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konfersi String dan Number</title>
+  </head>
+  <body>
+    <script>
+      const value1 = parseInt("5");
+      const value2 = 2;
+      const sum = value1 + value2;
+      document.writeln(
+        `<p>Total Sum: <b>${sum}</b> Dengan Tipe Data (${typeof sum})</p>`
+      );
+
+      document.writeln(`<p>ParseInt(): ${parseInt("9.5")}</p>`);
+      document.writeln(`<p>ParseFloat(): ${parseFloat("1.5")}</p>`);
+      document.writeln(`<p>Number(): ${Number("5.3")}</p>`);
+
+      /* konversi dari number ke string dengan toString() */
+      const a = 4;
+      const b = 5;
+      const total = a.toString() + b.toString();
+      document.writeln(
+        `<p>Total: <b>${total}</b> Dengan Tipe Data (${typeof total})</p>`
+      );
+
+      /* isNaN */
+      document.writeln(`<p>Total: ${parseInt("2.8 dua koma delapan")}</p>`); //masih bisa di tolelir
+      document.writeln(`<p>Total: ${parseFloat("2.8 dua koma delapan")}</p>`); //masih bisa di tolelir
+      document.writeln(`<p>Total: ${Number("2.8 dua koma delapan")}</p>`); //kalau number tidak bisa di tolelir
+
+      /* isNaN function */
+      const first = Number("bukan number"); //nan
+      const totalNumber = first + 100;
+      document.writeln(`<p>isNaN Function: ${totalNumber}</p>`);
+
+      document.writeln(`<p>isNaN Function: ${isNaN(totalNumber)}</p>`);
+      document.writeln(`<p>isNaN Function: ${NaN}</p>`);
+      document.writeln(`<p>isNaN Function: ${isNaN(100)}</p>`);
+    </script>
+  </body>
+</html>

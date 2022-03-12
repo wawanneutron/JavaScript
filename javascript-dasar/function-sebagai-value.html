@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Sebagai Value</title>
+  </head>
+  <body>
+    <script>
+      /* function bisa digunakan sebagai value artinya,
+           bisa dimasukan kedalam variabel
+           */
+      function sayHello(name) {
+        document.writeln(`<p>Hello ${name}</p>`);
+      }
+      function giveMeName(callback) {
+        callback("Eko Kurniawan PZN");
+      }
+      //   masukan kedalam variabel
+      const say = sayHello;
+      say("Wawan Setiawan");
+      //   panggil function lalu masukan parameter say
+      giveMeName(say);
+    </script>
+  </body>
+</html>

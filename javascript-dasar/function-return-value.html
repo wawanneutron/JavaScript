@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Return Value</title>
+  </head>
+  <body>
+    <script>
+      function sayHello(firstName, lastName) {
+        const say = `Hello ${firstName} ${lastName}`;
+        return say;
+      }
+      const name = sayHello("Jason", "Mraz");
+
+      function scoreExamp(value) {
+        if (value >= 90 || value >= 85) {
+          return `${name} your scor examp <b>A</b> congrats you pass`;
+        } else if (value >= 80 || value >= 75) {
+          return `${name} your scor examp <b>B</b> congrats you pass`;
+        } else if (value >= 70 || value >= 60) {
+          return `${name} your scor examp <b>C</b> try again next year`;
+        } else if (value >= 50) {
+          return `${name} your scor examp <b>D</b>  try again next year`;
+        } else {
+          return `${name} your scor examp <b>E</b> try again next year`;
+        }
+      }
+      const getScorExamp = scoreExamp(90);
+      document.writeln(getScorExamp);
+
+      /* menghentikan eksekusi dengan return
+      ketika menggunakan return kode programberikutnya tidak
+      akan dieksekusi*/
+      //   mencari sebuah value ada atau tidak di dalam array
+      function isContains(array, searchValue) {
+        for (const value of array) {
+          //jika ditemukan otomatis akan berhenti
+          console.log(value);
+          if (value === searchValue) {
+            return true;
+          }
+        }
+        return false;
+      }
+      const array = [
+        12, 24, 542, 634, 40, 23, 43, 23, 2424, 5231, 5325, 3242, 24, 23, 52,
+      ];
+      const search = 23;
+      const found = isContains(array, search);
+      document.writeln(`<p>${found}</p>`);
+    </script>
+  </body>
+</html>
