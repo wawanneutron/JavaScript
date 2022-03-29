@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Method</title>
+</head>
+<body>
+    <script>
+        class Shape {
+            // method parent class
+            paint(name){
+                console.log(`paint shape ${name}`);
+            }
+        }
+
+        class Circle extends Shape{
+            paint(name){
+                super.paint('Dulax') //memanggil paint() method parent class
+                console.log(`paint circle ${name}`);
+            }
+        }
+
+        const circle = new Circle
+        console.info(circle.paint('Katilac'))
+        console.log(circle);
+    </script>
+</body>
+</html>

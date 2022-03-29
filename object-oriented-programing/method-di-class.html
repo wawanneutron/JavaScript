@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Di Class</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(firstName, lastName) {
+                this.firstName = firstName         
+                this.lastName = lastName         
+            }
+            // metthod di class
+            sayHello(name) {
+                console.log(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        const wawan = new Person('Wawan', 'Setiawan')
+        const jhon = new Person('Jhon', 'Dhoe')
+        
+        console.info(wawan)
+        console.info(wawan.sayHello('Owi'))
+        console.info(jhon.sayHello('Jokowi'))
+    </script>
+</body>
+</html>

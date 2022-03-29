@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        function Person(firstName, lastName) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.sayHello = function(name) {
+                return document.write(`<p>Hello ${name}, nama saya ${this.firstName} ${this.lastName}</p>`)
+            }
+        }
+
+        const budi = new Person('Setio', 'Budi');
+        budi.sayHello('Jhon')
+
+        const joko = new Person('Jock', 'Owe');
+        joko.sayHello('Dhohe')
+
+        console.log(budi);
+        console.log(joko);
+    </script>
+</body>
+</html>

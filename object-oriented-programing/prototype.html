@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Inheritance</title>
+</head>
+<body>
+    <script>
+        function Person(firstName, lastName) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.sayHello = (name) => {
+                document.writeln(`Hello ${name}, my name is ${firstName}`)
+            }
+        }
+        
+        /* menambahkan property dengan prototype */
+        Person.prototype.sayGodBy = function() {
+            console.info(`Good By ${this.firstName}`)
+        }
+        Person.prototype.run = function(){
+            console.info(`${this.firstName} is running`)
+        }
+
+        const wawan = new Person('Wawan', 'Setiawan');
+        const Eko = new Person('Eko', 'Khanedy');
+
+        wawan.sayGodBy = function () {
+            console.log(`selamat tinggal ${this.firstName}`);
+        }
+        
+        console.log(wawan);
+        console.log(Eko);
+        
+        wawan.sayGodBy()
+        wawan.run()
+        Eko.sayGodBy()
+    </script>
+</body>
+</html>

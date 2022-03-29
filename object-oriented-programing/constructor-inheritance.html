@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaructor Inheritance</title>
+</head>
+<body>
+    <script>
+        /* constructor inheritance memanggil constructor lain
+        jadi bisa mewarisi semua property yang dibuat di constructor lain
+        untuk memanggil gunakan namaConstructor.call(this, parameter) 
+        */
+
+        function Employee(firstName) {
+            this.firstName = firstName
+            this.sayHello = function(name) {
+                document.write(`<p>Hello ${name}, My Name is ${this.firstName}</p>`);
+            }
+        }
+
+        function Manager(firstName, lastName) {
+            this.lastName = lastName
+            Employee.call(this, firstName)
+        }
+
+        const wawan = new Manager('Wawan', 'Neutron')
+        const budi = new Manager('Budi', 'Neutron')
+
+        wawan.sayHello('Owi')
+        budi.sayHello('Owi')
+
+        console.log(wawan);
+
+    </script>
+</body>
+</html>
