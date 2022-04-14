@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <script>
+        {
+            const name = 'Eko Kurniawan Khanedi';
+            let arrayName = [];
+
+            const splitName = name.split(" "); //jadikan array
+            arrayName = splitName; //asign ke variabel baru
+
+            // lalu foraech
+            // cara pertama
+            arrayName.forEach(function (value, index) {
+                console.log(`${index} : ${value}`);
+            });
+
+            // cara kedua dengan arrow function
+            arrayName.forEach((value, index) => console.log(`${index} : ${value}`));
+
+            // cara ketiga hanya mengambil value
+            arrayName.forEach(value => console.log(value))
+        }
+
+        {
+            //array queue
+            const queue = []
+
+            queue.push('Eko')
+            queue.push('Kurniawan')
+            queue.push('Khanedi')
+            queue.push('akbar')
+
+            queue.shift()
+            queue.shift()
+            queue.shift()
+
+            console.log(queue);
+        }
+
+        {
+            //array stack
+            const stack = []
+
+            stack.push('Eko')
+            stack.push('Kurniawan')
+            stack.push('Khanedi')
+            stack.push('akbar')
+
+            stack.pop()
+            stack.pop()
+            stack.pop()
+
+            console.log(stack);
+        }
+
+        {
+            // Array Search
+            const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+            const result1 = source.find(value => value > 4); //hasil 5 => mencari data susai kondisi
+            const result2 = source.findIndex(value => value > 4); // hasil 4 => mencari data index sesuai kondisi
+            const result3 = source.includes(5); // hasil true (bolean) => mengecek apakah terdapat data di dalam array
+            const result4 = source.indexOf(1); //hasil 0 => mengecek suatu data berada dalam posisi index keberapa
+            const result5 = source.lastIndexOf(
+                5); //hasil 9 => mengecek suatu data terakhir berada dalam posisi index keberapa
+
+            console.log(result1);
+            console.log(result2);
+            console.log(result3);
+            console.log(result4);
+            console.log(result5);
+        }
+
+        {
+            // Array Filter
+            // berfungsi untuk melakukan filter data pada array
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            const nomorGanjil = numbers.filter(value => value % 2 == 1);
+            const nomorGenap = numbers.filter(value => value % 2 == 0);
+
+            console.log(nomorGanjil);
+            console.log(nomorGenap);
+            console.log(numbers);
+        }
+
+        {
+            // Array Transform
+            // befungsi untuk melakukan transformasi
+            const names = "Eko Kurniawan Khannedy";
+            let arrayName = []; //name menjadi array, hasil dari split
+            arrayName = names.split(" ");
+
+            /* array map
+            befungsi untuk melakukan transform tiap value dan menghasilkan array result baru
+            */
+
+            const nameUppercase = arrayName.map(value => value.toUpperCase());
+            console.log(nameUppercase); //['EKO', 'KURNIAWAN', 'KHANNEDY']
+
+            /* array reduce
+            berfungsi melakukan transform dengan menggunakan value array dan value selanjutnya,
+            lalu hasilnya dilanjutkan ke iterasi selanjutnya 
+            */
+            const nameReduce = arrayName.reduce((before, value) => before + " " + value);
+            console.log(nameReduce); //Eko Kurniawan Khannedy
+
+            /* array reduceRight
+            sama seperti reduce, namun dilakukan dari belakang */
+            const namereduceRight = arrayName.reduceRight((before, value) => before + " " + value);
+            console.log(namereduceRight); //Khannedy Kurniawan Eko
+
+            // jumlahkan number dengan reduce
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            const sumNumbers = numbers.reduce((before, value) => before + value);
+            console.log(sumNumbers); //55
+
+            console.log(Array.isArray(numbers)); //untuk mengecek apakah array atau bukan
+        }
+    </script>
+</body>
+
+</html>

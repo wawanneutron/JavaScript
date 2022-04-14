@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number</title>
+</head>
+
+<body>
+    <script>
+        // Number
+        const input = "12345";
+        const number = Number(input)
+
+        console.log(number, typeof number, input);
+
+        // Number Static Property
+        console.log(Number.MAX_VALUE); //mendapatkan number maximal
+        console.log(Number.MIN_VALUE); //mendapatkan number minimal
+
+        // Number Static Method
+        const data = Number('123456');
+
+        console.log(Number.isNaN(data)); //untuk mengecek value NaN atau bukan
+        console.log(Number.isInteger(data)); //untuk mengecek berupa Integer atau bukan
+
+        // Number Instance Method
+        const value = Number('123456')
+        const curency = value.toLocaleString(value) //mengubah number menjadi string sesuai dengan local
+        const convert = value.toString() //mengubah number menjadi string
+        console.log(`${curency} dengan tipe data ${typeof curency}`);
+        console.log(`${convert} dengan tipe data ${typeof convert}`);
+        console.log(`${value} dengan tipe data ${typeof value}`);
+    </script>
+</body>
+
+</html>

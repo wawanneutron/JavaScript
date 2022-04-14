@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+    <script>
+        const string1 = 'jne tiki pos sicepat';
+        const string2 = "100 200 300 400";
+        const string3 = `jalanin aja dulu`;
+
+        let a = 'a'
+        let b = 'b'
+        if (a < b) { // true
+            console.log(a + ' is less than ' + b)
+        } else if (a > b) {
+            console.log(a + ' is greater than ' + b)
+        } else {
+            console.log(a + ' and ' + b + ' are equal.')
+        }
+
+        // other case
+        const name = 'Wawan Setiawan';
+        let firstName = "";
+        let lastName = "";
+
+        console.log(name.length);
+        console.log(name.toLowerCase()); //mengubah menjadi huruf kecil
+        console.log(name.toUpperCase()); //mengubah menajdi huruf besar
+
+        const splitName = name.split(' ') //memecah string menjadi array
+        firstName = splitName[0];
+        lastName = splitName[1];
+
+        console.log(firstName);
+        console.log(lastName);
+    </script>
+</body>
+
+</html>
