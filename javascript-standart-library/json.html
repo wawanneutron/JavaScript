@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            firstName: 'Wawan',
+            lastName: 'Setiawan',
+            hobies: ['Coding', 'Learning', 'Hiking', 'Adventure'],
+            live: {
+                country: 'Indonesia',
+                state: 'Banten',
+                city: 'Tangerang',
+            },
+            skills: {
+                backend: ['PHP', 'Larvel', 'NodeJs'],
+                frontend: ['VueJs', 'JavaScript', 'HTML', 'CSS', 'SASS']
+            }
+        }
+
+        const arrayPerson = [];
+        const hobies = person.hobies
+
+        arrayPerson.push(person);
+
+        document.write(`
+            Perkenalkan Nama saya ${person.firstName} ${person.lastName}, 
+            ]orang memanggil saya dengan nama depan ${person.firstName},
+            saya mempunyai banyak hobi diantaranya: ${person.hobies},
+            ${person.live.country}
+            ${person.live.state},
+            saya mempunyai skill di bidang programing diantaranya:
+            Backend: ${person.skills.backend} dan 
+            Frontend : ${person.skills.frontend}
+        `)
+
+
+        /* konversi dari object ke sting JSON deangan stringify*/
+
+        const json = JSON.stringify(person);
+        console.log(json);
+
+        /* konversi dari string JSON ke object dengan parse*/
+        const toObj = JSON.parse(json);
+        console.log(toObj);
+    </script>
+</body>
+
+</html>
