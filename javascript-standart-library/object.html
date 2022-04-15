@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+
+<body>
+    <script>
+        // Object Freeze & Seal
+        /* secara default object dapat diubah,ditambah, maupun dihapus */
+
+        {
+            // object Freeze()
+            const person = {
+                firstName: 'Wawan',
+                lastName: 'Setiawan'
+            }
+            /* Object.freeze() digunakan untuk mengubah object menjadi object yang tidak bisa diubah atau dihapus attribute nya*/
+            Object.freeze(person)
+            person.firstName = 'owi'; //tidak bisa di ubah
+            person.middleName = 'Khanedy'; //tidak bisa menambahkan property
+            delete person.lastName; //tidak bisa dihapus
+            console.log(person);
+        }
+
+        {
+            // object Seal()
+            const person = {
+                firstName: 'Wawan',
+                lastName: 'Setiawan'
+            }
+            /* Object.seal() digunakan untuk mengubah object menjadi object yang tidak bisa dihapus attribute nya, hanya bisa di ubah */
+            Object.seal(person);
+            person.firstName = 'Owe'; //hanya bisa diubah
+            person.middleName = 'Khanedy'; //tidak bisa menambahkan property
+            delete person.lastName; //tidak bisa dihapus
+            console.log(person);
+        }
+
+        {
+            // Object Assign
+            /* Kadang kita ada kasus menggabungkan semua attribute dari sebuah object ke object lain
+                Hal ini bisa kita lakukan dengan menggunakan Object.assign(target, source)
+            */
+
+            //target
+            const person = {
+                firstName: 'Wawan',
+                lastName: 'Setiawan'
+            }
+            //source
+            const address = {
+                country: 'Indonesia',
+                state: 'Banten',
+                city: 'Tangerang'
+            }
+            Object.assign(person, address)
+            console.log(person);
+            /* 
+            Object Property Name & Value
+            Object.values() digunakan untuk mengambil semua property value
+            Object.getPropertyNames() digunakan untuk mengambil semua properti name
+            */
+            const getValues = Object.values(person)
+            const getProperties = Object.getOwnPropertyNames(person)
+            //hasilnya berupa array baru
+            console.log(getValues);
+            console.log(getProperties);
+
+            /* create new Object with Object.create()*/
+            const newObj = Object.create(person)
+            newObj.fitstName = 'Jok'
+            newObj.lastName = 'Owe'
+            Object.assign(newObj, address) //gabungkan dengan obj address
+
+            console.log(newObj);
+        }
+    </script>
+</body>
+
+</html>
