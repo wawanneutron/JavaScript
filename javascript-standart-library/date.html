@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+
+<body>
+    <script>
+        const date1 = new Date(); //curent date
+        const date2 = new Date(2022, 04, 17); //year, month, date
+        const date3 = new Date(2022, 04, 17, 18, 30, 20, 9000) // year, month, date, hour, minute, second, mills
+
+        console.log(date1);
+        console.log(date2);
+        console.log(date3);
+
+        /* Epoch & Unix Timestamp */
+        // Unix Timestamp
+        const timestamp = Date.now();
+        console.log(timestamp);
+
+        const dateUnix = new Date(timestamp);
+        console.log(dateUnix);
+        console.log(dateUnix.getTime());
+
+        /* parsing date()
+            Kita juga bisa melakukan parsing membuat date dari string menggunakan method Date.parse(value)
+            Format string harus YYYY-MM-DDTHH:mm:ss.sssZ
+            Dimana jika kita hanya membuat date berisi tanggal saja, kita cukup gunakan YYYY-MM-DD
+            Jika date dengan tanggal dan waktu, gunakan YYYY-MM-DDTHH:mm:ss.sss
+            Jika date dengan tanggal, waktu dan timezone, gunakan YYYY-MM-DDTHH:mm:ss.sssZ
+            Hasil parsing adalah unix timestamp, bukan object date
+        */
+
+        //ubah dari string ke epox unix timestamp
+        const parseTimestamp1 = Date.parse("2022-04-17T21:51");
+        const parseTimestamp2 = Date.parse("2022-02-10T07:30:50.123+07:00")
+        // ubah dari unix timestamp ke tanggal yang bisa dibaca
+        const parseDate1 = new Date(parseTimestamp1);
+        const parseDate2 = new Date(parseTimestamp2);
+
+        console.log(parseTimestamp1);
+        console.log(parseTimestamp2);
+
+        console.log(parseDate1);
+        console.log(parseDate2);
+
+        /* 
+            Date Setter dan Getter
+        */
+
+        const date = new Date();
+        date.setFullYear(2012)
+        date.setMonth(04)
+
+        console.log(date.getFullYear());
+        console.log(date.getMonth());
+        console.log(date.getDate());
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        console.log(date.getMilliseconds());
+        console.log(date.getTimezoneOffset());
+    </script>
+</body>
+
+</html>
