@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alias</title>
+</head>
+
+<body>
+    <script type="module">
+        /* alias penamaan variable, function, class, tanpa merubah variable hanya alias saja */
+        import {company as perusahaan , sum as total, Company as Perusahaan} from "./script/alias.js";
+
+        console.log(perusahaan);
+        console.log(total(5, 7));
+        
+        let perusahaan1 = new Perusahaan("Joko");
+        perusahaan1.lastName = "Tingkir"
+
+        perusahaan1.introduction("Owi", perusahaan)
+
+        console.log(perusahaan1);
+    </script>
+</body>
+
+</html>
