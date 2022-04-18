@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Proxy</title>
+ </head>
+
+ <body>
+     <script>
+         /* Proxy merupakan fitur yang bisa digunakan sebagai wakil sebuah data
+            Dengan menggunakan proxy, semua interaksi ke data akan selalu melalui Proxy terlebih dahulu
+            Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data yang dituju
+            */
+
+         //  membuat handler
+         const target = {
+             state: "Indonesia"
+         };
+
+         const handler = {
+             get: function (taget, property) {
+                 console.log(`you call property ${property}`);
+                 return target[property];
+             },
+             set: function (target, property, value) {
+                 console.log(`you set property ${property} to value ${value}`);
+                 if (value == null) {
+                     return target[property] = "";
+                 } else {
+                     return target[property] = value
+                 }
+             }
+         }
+         //  membuet proxy
+         const proxy = new Proxy(target, handler);
+         proxy.firstName = "Joko";
+         proxy.lastName = null;
+         let getFirstName = proxy.firstName;
+
+         console.log(target);
+         console.log(getFirstName);
+     </script>
+ </body>
+
+ </html>
