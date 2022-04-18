@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+</head>
+
+<body>
+    <script>
+        { // Membuat RegExp
+            const regex1 = /[Wawan]/;
+            const regex2 = new RegExp("[Wawan]");
+            const regex3 = new RegExp(/[Wawan]/);
+
+            // RegExp Instance Method
+            const name = "wawan setiawan neutron wawan"
+            let regex = /neutron/
+
+            let result = regex.exec(name); //eksekusi regex, return array , jika tdk null
+            let test = regex.test(name); //jika menemukan return true jika tidak false
+            console.log(result);
+        }
+
+        {
+            /* RegExp Modifier
+            untuk merubah sifat cara pencarian
+            */
+            const name = "setiawan\nWawan neutron\nwawan Wawan Setiawan\nKhanedy";
+            const regex1 = /^wawan/gm
+            const regex2 = /Neutron/ig
+
+            let result;
+            while (result = regex1.exec(name)) {
+                console.log(result);
+            }
+
+            while (result = regex2.exec(name)) {
+                console.log(result);
+            }
+        }
+    </script>
+</body>
+
+</html>
