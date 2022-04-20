@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules Object</title>
+</head>
+
+<body>
+    <script type="module">
+        /* menginport semua nya sebagai object */
+        import * as Wawan from "./script/export-default/module-object.js";
+        
+        console.log(Wawan.firstName);
+        console.log(Wawan.midleName);
+        console.log(Wawan.lastName);
+
+        Wawan.hello()
+        
+        let people = new Wawan.Person()
+        people.firstName = "Yulia";
+        people.lastName = "Syaputri";
+    
+        Wawan.kenangan(people.firstName + "" + people.lastName)
+        
+    </script>
+</body>
+
+</html>

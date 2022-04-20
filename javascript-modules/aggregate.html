@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregate</title>
+</head>
+
+<body>
+    <script type="module">
+        import { Person, Company, sum as total, company } from "./script/aggregate.js";
+
+        const person = new Person();
+        person.name = undefined;
+        person.firstName = "Wawan";
+        person.lastName = "Setiawan";
+        console.log(`${person.firstName} ${person.lastName}`);
+        
+
+        const personName = new Company(person.firstName);
+        personName.introduction("Jhon Doe", company) 
+
+       console.log(total(10, 5));
+    </script>
+</body>
+
+</html>

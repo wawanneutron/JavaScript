@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="fullname" id="inputText">
+    <input type="button" id="inputButton" value="Input">
+
+    <script type="module">
+        /*  dynemic module
+            module dipanggil ketika dibutuhkan saja, dipanggil ketika dibutuhkan saja,
+            ini dapat menghemat resource 
+        */
+        document.getElementById("inputButton").onclick = function(){
+            import("./script/alert.js").then((module) => {
+                const value = document.getElementById("inputText").value;
+                module.sayHello(value);
+            })
+        }
+    </script>
+</body>
+
+</html>
