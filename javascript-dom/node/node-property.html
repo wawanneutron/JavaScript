@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Property</title>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <ul id="punyaUl">
+        <li id="li1">JavaScript</li>
+        <li id="li2">PHP</li>
+        <li id="li3">Laravel</li>
+        <li id="li4">Vue Js</li>
+    </ul>
+    <script>
+        let ul = document.getElementById('punyaUl');
+        console.log(ul);
+
+        let li2 = document.getElementById('li2')
+        console.log(li2.nextElementSibling);
+        console.log(li2.nextElementSibling.nextElementSibling);
+        console.log(li2.previousSibling.previousSibling);
+    </script>
+</body>
+
+</html>
