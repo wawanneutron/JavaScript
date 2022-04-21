@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Property</title>
+</head>
+
+<body>
+    <div class="content" id="content">
+        <h1 id="title"></h1>
+        <p id="description"></p>
+    </div>
+    <script>
+        const title = document.getElementById('title');
+        title.textContent = "Belajar JavaScript DOM";
+
+        const description = document.getElementById('description');
+        description.textContent = "Selamat Belajar javascript dom";
+
+        title.remove(); //hapus element
+        description.remove(); //hapus element
+
+        // membuat element baru
+        const titleHeader = document.createElement('h1');
+        const paragraph = document.createElement('p');
+        const content = document.getElementById('content');
+        content.append(titleHeader);
+        content.append(paragraph);
+
+        titleHeader.textContent = "Belajar JavaScript";
+        paragraph.textContent = "Selamat Belajar JavaScript";
+        // styling
+        content.style.textAlign = "center"
+        titleHeader.style.color = "red";
+        paragraph.style.color = "purple";
+        paragraph.style.color = "purple";
+        paragraph.style.fontSize = "25px";
+
+        console.log(document);
+    </script>
+</body>
+
+</html>
