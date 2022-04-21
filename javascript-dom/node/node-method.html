@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Method</title>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <ul id="punyaUl">
+        <li id="li1">JavaScript</li>
+        <li id="li2">PHP</li>
+        <li id="li3">Laravel</li>
+        <li id="li4">Vue Js</li>
+    </ul>
+    <script>
+        let ul = document.getElementById('punyaUl');
+
+        // remove chilld
+        let remove1 = ul.removeChild(document.getElementById('li3'));
+        let remove2 = ul.removeChild(document.getElementById('li1'));
+        let remove3 = ul.removeChild(document.getElementById('li2'));
+        // let remove4 = ul.removeChild(document.getElementById('li4'));
+        console.log(ul);
+
+
+        // membuat element baru - crete element
+        let div = document.createElement('div');
+        div.appendChild(document.createElement('h2'))
+        div.firstChild.textContent = 'Dibuat dengan properti firstElementChild'
+        // taro di body
+        document.body.appendChild(div);
+
+        // menambahkan p kedalam body
+        let p = document.createElement('p');
+        p.textContent = `Hello ${li4.innerText} ini dibuat dengan method createElement`
+        document.body.appendChild(p);
+
+        console.log(p);
+        console.log(div);
+
+        console.log(document);
+
+
+        // clone node
+        let cloneNode = ul.cloneNode(true);
+        console.log(cloneNode);
+    </script>
+</body>
+
+</html>
