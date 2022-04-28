@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+</head>
+
+<body>
+    <input type="button" id="clickMe" value="Click Me"> <br>
+    <input type="button" id="clickMe2" value="Click Me">
+    <script>
+        /* 
+        Ada dua cara kita menambahkan Event Handler ke Node, 
+        menggunakan Event Target atau Global Event Handler */
+        const clickMe1 = document.getElementById('clickMe');
+        clickMe1.style.fontSize = '30px';
+        const clickMe2 = document.getElementById('clickMe2');
+        clickMe2.style.fontSize = '30px';
+        clickMe2.style.marginTop = '30px';
+
+        // add even handler
+        clickMe1.addEventListener('click', function () {
+            clickMe1.setAttribute('value', 'You Already Click Me!');
+        })
+
+
+        // global event handler
+        clickMe2.onclick = function () {
+            clickMe2.setAttribute('value', 'This Global Event')
+        }
+    </script>
+</body>
+
+</html>

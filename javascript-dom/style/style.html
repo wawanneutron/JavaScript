@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style</title>
+</head>
+
+<body>
+    <div class="btn">
+        <button id="button" value="red"
+            style="background-color: red; width: 70px; height: 50px; color: aliceblue;">Red</button>
+        <button id="button" value="green"
+            style="background-color: green; width: 70px; height: 50px; color: aliceblue;">Green</button>
+        <button id="button" value="blue"
+            style="background-color: blue; width: 70px; height: 50px; color: aliceblue;">Blue</button>
+    </div>
+    <canvas id="canvas" style="width: 450px; height: 300px; background-color: yellow; margin-top: 30px;"></canvas>
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+        const canvas = document.getElementById('canvas');
+
+        for (let button of buttons) {
+            button.addEventListener('click', function () {
+                canvas.style.backgroundColor = button.getAttribute('value');
+            })
+        }
+    </script>
+</body>
+
+</html>

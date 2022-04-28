@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute | Attr</title>
+</head>
+
+<body>
+    <img src="https://programmerzamannow.com/img/pzn.png" id="logo" alt="logo PZN">
+
+    <script>
+        const logo = document.getElementById('logo');
+        const src = logo.getAttribute('src')
+
+        logo.setAttribute('src',
+            'https://buildwithangga.com/themes/front/images/logo_bwa_new.svg'
+        ); //merubah dengan menggunakan setAttribute(atribute, value)
+        logo.setAttribute('alt', 'Logo BWA'); //merubah dengan menggunakan setAttribute(atribute, value)
+    </script>
+</body>
+
+</html>

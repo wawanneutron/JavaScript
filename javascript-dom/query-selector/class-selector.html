@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Selector</title>
+</head>
+
+<body>
+    <!-- Query Selector merupakan method untuk menseleksi node sesuai dengan pola yang kita ingin cari
+Terdapat dua method untuk Query Selector :
+Document.querySelector(pola) digunakan menyeleksi node pertama yang sesuai dengan pola
+Document.querySelectorAll(pola) digunakan untuk menyeleksi semua node yang sesuai dengan pola
+.
+Pola untuk Query Selector adalah menggunakan CSS Selector
+Penggunakan Pola nya mirip ketika kita membuat Selector di CSS
+ .
+ Class Selector merupakan selector untuk menyeleksi semua element yang memiliki class yang sesuai selector
+Untuk menggunakannya, kita bisa sebutkan nama class nya diawali dengan titik
+
+-->
+
+    <h1>Class Selector</h1>
+
+    <ul>
+        <li class="menuItem">Satu</li>
+        <li class="menuItem">Dua</li>
+        <li class="Wawan">Tiga</li>
+        <li class="menuItem">Empat</li>
+        <li class="menuItem">Lima</li>
+    </ul>
+
+    <script>
+        // mengambil berdasarkan class selector
+        const elements = document.querySelectorAll(".menuItem");
+        // panggil satu saja
+        const element2 = document.querySelector(".Wawan");
+
+        console.log(elements);
+    </script>
+</body>
+
+</html>

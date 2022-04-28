@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Element</title>
+</head>
+
+<body>
+    <a id="link" href="">HTML Element </a>
+    <script>
+        const link = document.getElementById('link');
+
+        link.setAttribute('href', 'https://santrikoding.com');
+        // bisa langsung sepertii ini
+        // link.href = 'https://programmerzamannow.com';
+        link.target = "_blank";
+        link.textContent = "Website Programmer Zaman Now"
+    </script>
+</body>
+
+</html>

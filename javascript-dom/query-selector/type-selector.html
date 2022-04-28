@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Selector</title>
+</head>
+
+<body>
+    <!-- Query Selector merupakan method untuk menseleksi node sesuai dengan pola yang kita ingin cari
+Terdapat dua method untuk Query Selector :
+Document.querySelector(pola) digunakan menyeleksi node pertama yang sesuai dengan pola
+Document.querySelectorAll(pola) digunakan untuk menyeleksi semua node yang sesuai dengan pola
+.
+Pola untuk Query Selector adalah menggunakan CSS Selector
+Penggunakan Pola nya mirip ketika kita membuat Selector di CSS
+ .
+ Type Selector adalah selector yang digunakan untuk menyeleksi  tag type HTML yang kita pilih
+Untuk menggunakannya, kita bisa langsung sebutkan nama tag nya
+
+-->
+
+    <h1>Type Selector</h1>
+
+    <ul>
+        <li>Satu</li>
+        <li>Dua</li>
+    </ul>
+
+    <ul>
+        <li>Tiga</li>
+        <li>Empat</li>
+        <li>Lima</li>
+    </ul>
+
+    <script>
+        // mengambil semua element li
+        const elements = document.querySelectorAll("li");
+
+        console.log(elements);
+    </script>
+</body>
+
+</html>

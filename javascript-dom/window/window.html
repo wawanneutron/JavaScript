@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+</head>
+
+<body>
+    <p id="content"></p>
+    <p id="linkLocation"></p>
+    <div id="navigator"></div>
+    <p id="localStorage"></p>
+    <script>
+        const content = document.getElementById('content');
+        const linkLocation = document.getElementById('linkLocation')
+        const navigatorWeb = document.getElementById('navigator')
+
+        const width = window.screen.width;
+        const height = window.screen.height;
+        content.textContent = `Window width ${width} x height ${height}`;
+
+        /*  // link location */
+        const link = window.location;
+        linkLocation.textContent = link
+
+        /*  // client information */
+        let sBrowser, detect = navigator.userAgent;
+        // create element
+        let navLong = document.createElement('p');
+        let navShort = document.createElement('p');
+
+
+        navigatorWeb.append(navLong);
+        navigatorWeb.append(navShort);
+        // asign
+        // navigatorWeb.textContent = detect;
+        if (detect.indexOf("Firefox") > -1) {
+            sBrowser = "Mozilla Firefox";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+            // "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
+        } else if (detect.indexOf("SamsungBrowser") > -1) {
+            sBrowser = "Samsung Internet";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+
+            // "Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G955F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.4 Chrome/67.0.3396.87 Mobile Safari/537.36
+        } else if (detect.indexOf("Opera") > -1 || detect.indexOf("OPR") > -1) {
+            sBrowser = "Opera";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+
+            // "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 OPR/57.0.3098.106"
+        } else if (detect.indexOf("Trident") > -1) {
+            sBrowser = "Microsoft Internet Explorer";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+            // "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Zoom 3.6.0; wbx 1.0.0; rv:11.0) like Gecko"
+        } else if (detect.indexOf("Edge") > -1) {
+            sBrowser = "Microsoft Edge (Legacy)";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+
+            // "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299"
+        } else if (detect.indexOf("Edg") > -1) {
+            sBrowser = "Microsoft Edge (Chromium)";
+            navLong.textContent = detect
+            navShort.textContent = `you use web browser ${sBrowser}`;
+
+            // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.64
+        } else if (detect.indexOf("Chrome") > -1) {
+            sBrowser = "Google Chrome or Chromium";
+            navLong.textContent = detect
+            navShort.textContent = `you use web browser ${sBrowser}`;
+
+
+            // "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36"
+        } else if (detect.indexOf("Safari") > -1) {
+            sBrowser = "Apple Safari";
+            navLong.textContent = detect
+            navShort.textContent = sBrowser;
+
+            // "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1 980x1306"
+        } else {
+            sBrowser = "unknown";
+        }
+
+
+        /* window closed */
+
+        let popupWindow = null;
+
+        function refreshPopupWindow() {
+            if (popupWindow && !popupWindow.closed) {
+                // popupWindow is open, refresh it
+                popupWindow.location.reload(true);
+            } else {
+                // Open a new popup window
+                popupWindow = window.open('http://127.0.0.1:5500/javascript-dom/element/element-method.html',
+                    'dataWindow');
+            }
+        }
+        // refreshPopupWindow()
+
+
+        /* locale storage */
+
+        const people = {
+            firstName: "Wawan",
+            lastName: "Setiawan",
+            age: 24,
+            state: "Tangerang-Banten"
+        }
+        let state = []
+
+        localStorage.setItem('person', JSON.stringify(people));
+
+        state = JSON.parse(localStorage.getItem('person'))
+        // tampilkan
+        const detailPerson = document.getElementById('localStorage');
+
+        for (let people in state) {
+            detailPerson.innerHTML +=
+                `<ul> 
+                    <li>
+                        ${people} :  ${state[people]}    
+                    </li>                
+                </ul>`
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Named Node Map</title>
+</head>
+
+<body>
+    <img id="logo" src="https://programmerzamannow.com/img/pzn.png" alt="logo PZN">
+    <script>
+        let logo = document.getElementById("logo");
+        let attributes = logo.attributes;
+
+        console.log(attributes);
+
+        for (let attribute of attributes) {
+            let item = `${attribute.name} : ${attribute.value} </br>`;
+            document.write(item);
+        }
+    </script>
+</body>
+
+</html>

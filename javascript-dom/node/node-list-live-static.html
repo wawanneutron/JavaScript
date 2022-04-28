@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node List Static</title>
+</head>
+
+<body>
+    <div>
+        <ul id="menu1">
+            <li id="li1">PHP</li>
+            <li id="li2">Laravel</li>
+            <li id="li3">Node JS</li>
+        </ul>
+    </div>
+    <div>
+        <ul id="menu2">
+            <li id="li1">VueJs</li>
+            <li id="li2">JavaScript</li>
+            <li id="li3">CSS</li>
+        </ul>
+    </div>
+    <script>
+        const list = document.querySelectorAll('li');
+
+        const menu1 = document.getElementById('menu1');
+        const addLi1 = document.createElement('li');
+        const addLi2 = document.createElement('li');
+        menu1.append(addLi1, addLi2);
+
+        const list2 = document.querySelectorAll('li');
+
+        console.log(list2);
+        console.log(list);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form HTML Via Name</title>
+</head>
+
+<body>
+    <form name="formContent" id="f">
+        <div id="formComent">
+            <label for="comment">Comment</label>
+            <input type="text" name="commentName" id="comment">
+        </div>
+        <div id="fromInput">
+            <label for="from">From</label>
+            <input type="text" name="fromName" id="from">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="commentList">
+        <!-- hasil input disini -->
+    </div>
+    <!-- Salah satu kelebihan Form adalah, kita bisa mengakses form hanya dengan menggunakan form name
+        Kita bisa gunakan document.forms[name]
+        Atau jika kita ingin mengakses input nya, kita juga bisa menggunakan name nya document.forms[name][inputName]
+        -->
+
+    <script>
+        document.forms['formContent'].onsubmit = function (event) {
+            const comment = document.forms['formContent']['commentName'];
+            const from = document.forms['formContent']['fromName'];
+
+            const Resultlist = document.getElementById('commentList');
+            const newElement = document.createElement('p');
+            Resultlist.append(newElement);
+
+            if (comment.value.length == 0 || from.value.length == 0) {
+                newElement.textContent = 'Tidak boleh kosong';
+                newElement.style.color = 'red'
+            } else {
+                console.log(Resultlist);
+                newElement.textContent = `${comment.value} - dari ${from.value}`
+            }
+
+            document.forms['formContent'].reset();
+
+            event.preventDefault();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute | Attr</title>
+</head>
+
+<body>
+    <img id="logo1" onmouseleave="changeImg()" onmouseover="normalImg()">
+    <img id="logo2">
+
+    <script>
+        // cara panjang
+        const logo = document.getElementById('logo1');
+        const src = document.createAttribute('src')
+        src.value = "https://programmerzamannow.com/img/pzn.png";
+
+        logo.setAttributeNodeNS(src);
+        logo.style.width = '100px';
+
+        changeImg = () => {
+            logo.setAttribute('src', 'https://buildwithangga.com/themes/front/images/logo_bwa_new.svg')
+        }
+        normalImg = () => {
+            logo.setAttribute('src', "https://programmerzamannow.com/img/pzn.png");
+
+        }
+
+
+        // cara singkatnya langsung menggunakan set
+        const logo2 = document.getElementById('logo2');
+        logo2.setAttribute('src', 'https://buildwithangga.com/themes/front/images/logo_bwa_new.svg');
+        logo2.setAttribute('alt', 'logo BWA');
+
+        logo2.style.width = "100px";
+        logo2.style.marginLeft = "30px";
+    </script>
+</body>
+
+</html>

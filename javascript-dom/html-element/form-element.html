@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form HTML</title>
+</head>
+
+<body>
+    <form name="formContent" id="f">
+        <div id="formComent">
+            <label for="comment">Comment</label>
+            <input type="text" name="comment" id="comment">
+        </div>
+        <div id="fromInput">
+            <label for="from">From</label>
+            <input type="text" name="from" id="from">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="commentList">
+        <!-- hasil input disini -->
+    </div>
+
+
+    <script>
+        document.querySelector("form[name='formContent']").onsubmit = function (event) {
+            const comment = document.getElementById('comment');
+            const from = document.getElementById('from');
+
+            const Resultlist = document.getElementById('commentList');
+            const newElement = document.createElement('p');
+            Resultlist.append(newElement);
+
+            if (comment.value.length == 0 || from.value.length == 0) {
+                newElement.textContent = 'Tidak boleh kosong';
+                newElement.style.color = 'red'
+            } else {
+                console.log(Resultlist);
+                newElement.textContent = `${comment.value} - dari ${from.value}`
+            }
+
+            document.querySelector("[name='formContent']").reset();
+            event.preventDefault();
+        }
+    </script>
+</body>
+
+</html>

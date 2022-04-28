@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Text dan Inner Html</title>
+</head>
+
+<body>
+    <p id="content">
+        <script>
+            let people = {
+                firstName: 'Wawan',
+                lastName: 'Setiawan',
+                age: 24
+            }
+
+            console.log(`my name is ${people.firstName} ${people.lastName} my age ${people.age} th`);
+        </script> <br>
+        <b>Wawan</b><i> Setiawan</i>
+    </p>
+
+    <script>
+        const content = document.getElementById('content');
+
+        console.log(content.textContent); //membaca semua text termasuk code script menjadi string
+        console.log(content.innerText) //hanya membaca text saja tidak dengan script code
+
+        /* mengubah element dengan inner HTML
+        Tag yang terdapat di dalam String secara otomatis akan menjadi child element */
+        content.innerHTML = "<h1>Belajar JavaScript DOM </h1> <p> Selamat belajar javascript DOM </p>"
+    </script>
+</body>
+
+</html>

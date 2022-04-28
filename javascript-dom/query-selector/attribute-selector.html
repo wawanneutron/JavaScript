@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selector</title>
+</head>
+
+<body>
+    <!-- Query Selector merupakan method untuk menseleksi node sesuai dengan pola yang kita ingin cari
+Terdapat dua method untuk Query Selector :
+Document.querySelector(pola) digunakan menyeleksi node pertama yang sesuai dengan pola
+Document.querySelectorAll(pola) digunakan untuk menyeleksi semua node yang sesuai dengan pola
+.
+Pola untuk Query Selector adalah menggunakan CSS Selector
+Penggunakan Pola nya mirip ketika kita membuat Selector di CSS
+ .
+ Attribute Selector merupakan selector yang bisa digunakan untuk menyeleksi element berdasarkan attribute nya
+Kita bisa menggunakan selector [attribute]
+Atau bisa juga untuk tag tertentu, misal menggunakan selector div[attribute]
+
+
+-->
+
+    <h1>Attribute Selector</h1>
+
+    <div class="WawanSetiawan">Dua</div>
+    <div class="Wawan">Satu</div>
+    <div>Tiga</div>
+    <div id="WawanNeutron">Empat</div>
+    <div class="Wawan">Lima</div>
+
+    <script>
+        // panggil semua attribute class
+        const elements = document.querySelectorAll("[class]");
+        // panggil semua atribut class yg ditentukan
+        const element2 = document.querySelectorAll(
+            "div[class^='Wa']"); //simbol ^ artinya memanggil apapaun yg awalannya "Wa"
+        // panggil attribute id
+        const element3 = document.querySelectorAll("[id = 'WawanNeutron']");
+
+        console.log(elements);
+        console.log(element2);
+        console.log(element3);
+    </script>
+</body>
+
+</html>

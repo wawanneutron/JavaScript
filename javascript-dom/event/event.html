@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+
+<body>
+    <h1>Click Yellow Box !</h1>
+    <p id="text"></p>
+    <canvas id="canvas" style="background-color: yellow; height: 200px; width: 400px;"></canvas>
+
+    <script>
+        const text = document.getElementById('text');
+        const canvas = document.getElementById('canvas');
+
+
+        canvas.onmousemove = function (event) {
+            text.innerHTML = `<b>You click on cordinate Y: ${event.y} <br/>
+            You click on cordinate X: ${event.x}</b>`
+        }
+    </script>
+</body>
+
+</html>
