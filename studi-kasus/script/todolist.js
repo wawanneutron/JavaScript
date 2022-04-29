@@ -52,8 +52,6 @@ function displayTodolist() {
     const searchText = document.getElementById("search").value.toLowerCase();
     if (todo.toLowerCase().includes(searchText)) {
       addTodoList(todo, i); //panggil method
-    } else {
-      console.log("tidak ada");
     }
   }
 }
