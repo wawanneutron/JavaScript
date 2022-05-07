@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response Status</title>
+</head>
+
+<body>
+    <script>
+        function displayResponse(json) {
+            let div = document.createElement("div");
+            document.body.appendChild(div);
+            let h1 = document.createElement("h1");
+            div.appendChild(h1);
+
+            // cek jika ada tampilkan jika tidak tampilkan error
+            if (json.people) {
+                div.innerText = json.people.firstName
+            } else {
+                h1.textContent = json.response
+            }
+
+        }
+
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", 'api/responses.json');
+
+        ajax.send();
+
+        ajax.addEventListener("load", function () {
+            //    check response status code
+            if (ajax.status == 200) {
+                const json = JSON.parse(ajax.responseText);
+                displayResponse(json)
+            } else {
+                displayResponse({
+                    response: `Response Error : ${ajax.status} - ${ajax.statusText}`
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
