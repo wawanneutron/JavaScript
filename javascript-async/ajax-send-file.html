@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Send File</title>
+</head>
+
+<body>
+    <h1>Register</h1>
+    <form>
+        <div class="form-group">
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="profile">Photo Profile</label>
+            <input type="file" name="profile" id="profile">
+        </div>
+        <button type="submit" id="btnRegister">Register</button>
+    </form>
+    <h1 id="response"></h1>
+</body>
+<script>
+    const doRegister = (event) => {
+        event.preventDefault();
+
+        const method = "POST";
+        const url = "https://javascript-pzn.free.beeceptor.com";
+
+        const ajax = new XMLHttpRequest();
+        ajax.open(method, url);
+        ajax.onload = function () {
+            let h1 = document.getElementById("response");
+            let response = ajax.responseText
+            console.log(response);
+            h1.textContent = response
+            // if (response.success == true) {
+            //     h1.textContent = "Register is successfully";
+            // } else {
+            //     h1.textContent = `${response.message}`
+            // }
+        }
+        const form = new FormData();
+
+        form.append("username", document.getElementById("username").value);
+        form.append("name", document.getElementById("name").value);
+
+        const files = document.getElementById("profile").files;
+        const firstFile = files.item(0);
+
+        form.append("profile", firstFile);
+
+        ajax.send(form);
+    }
+
+
+    document.getElementById("btnRegister").onclick = doRegister;
+</script>
+
+</html>

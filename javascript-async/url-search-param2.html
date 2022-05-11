@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Search param</title>
+</head>
+
+<body>
+    <form>
+        <div class="form">
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="form">
+            <label for="password">Password :</label>
+            <input type="text" name="password" id="password">
+        </div>
+        <button type="submit" id="buttonLogin">Login</button>
+    </form>
+    <h1 id="response"></h1>
+</body>
+<script>
+    /* mengirim body fo0rm dengan URLSearchParams */
+    const doLogin = (event) => {
+        let method = "POST";
+        let url = "https://hookb.in/VGrqMKRZRetLp62eleXk";
+
+        const ajax = new XMLHttpRequest();
+        ajax.open(method, url);
+        ajax.onload = function () {
+            let h1 = document.getElementById("response");
+            let response = JSON.parse(ajax.responseText);
+            if (response.success) {
+                h1.textContent = 'Login is Successfuly';
+            }
+        }
+        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        const form = new URLSearchParams();
+
+        form.append('username', document.getElementById('username').value);
+        form.append('password', document.getElementById('password').value);
+
+        ajax.send(form);
+        event.preventDefault();
+    }
+
+    document.getElementById("buttonLogin").onclick = doLogin;
+</script>
+
+</html>

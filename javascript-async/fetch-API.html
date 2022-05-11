@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+
+<body>
+    <div class="form-group">
+        <label for="username">Username :</label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password :</label>
+        <input type="text" name="password" id="password">
+    </div>
+    <button type="submit" id="login">Login</button>
+    <h2 id="responseText"></h2>
+    <h2 id="catchError"></h2>
+    <h4 id="textResponse"></h4>
+</body>
+<script>
+    const doLogin = () => {
+        const request = new Request("https://hookb.in/K3XXxw7xJPsp2Dzn9nBj", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            })
+        });
+
+        // Propmise<Response>
+        const response = fetch(request);
+        console.log(response);
+
+
+        response
+            .then((response) => {
+                let h2 = document.getElementById("responseText");
+
+                const json = response.json();
+                h2.textContent =
+                    `Status Request : ${response.ok == true ? 'Login Success' : `Error ${response.status}`}`
+                return json
+            })
+            .then((json) => {
+
+                let h4 = document.getElementById("textResponse");
+                if (json.success == false) {
+                    h4.textContent =
+                        `Login Failed Response Status ${json.success}`;
+                }
+            })
+            .catch((error) => {
+                let h2 = document.getElementById("catchError");
+                h2.textContent = error
+            })
+    }
+
+    document.getElementById("login").onclick = doLogin;
+</script>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Method</title>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>ID</td>
+                <td>:</td>
+                <td id="id"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>:</td>
+                <td id="price"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="responseText"></h2>
+    <b id="error"></b>
+</body>
+
+<script>
+    const getProduct = (APIProduct) => {
+        return new Promise((resolve, reject) => {
+            let method = "GET";
+            let url = `../api/${APIProduct}.json`;
+
+            const ajax = new XMLHttpRequest();
+            ajax.open(method, url);
+            ajax.onload = () => {
+                let respon = document.getElementById("responseText");
+                let errorRespon = document.getElementById("error");
+
+                if (ajax.status == 200) {
+                    resolve(ajax.response)
+                    respon.textContent =
+                        `Get Data Product Success, Response Status : ${ajax.status} Ok`
+                } else {
+                    let err =
+                        `Get Data Product failed - Error Code ${ajax.status} - ${ajax.statusText}`;
+                    errorRespon.innerHTML =
+                        `${ajax.response} Response Status  ${ajax.status} - ${ajax.statusText}`
+
+                    reject(err);
+                }
+            }
+
+            ajax.send();
+        })
+    }
+
+    /* Promise Static Method 
+    Promise juga memiliki beberapa static method seperti:
+    all(), any(), race()
+    */
+    const response = Promise.all([
+        getProduct("product3"),
+        getProduct("product2"),
+        getProduct("product"),
+    ]);
+
+    response
+        .then((response) => {
+            // console.log(JSON.parse(response));
+            return json = response.map(value => JSON.parse(value))
+        })
+        .then((json) => {
+            let tdId = document.getElementById("id");
+            let tdName = document.getElementById("name");
+            let tdPrice = document.getElementById("price");
+
+            tdId.textContent = json[0].id
+            tdName.textContent = json[0].name
+            tdPrice.textContent = moneyFormat(json[0].price)
+
+            for (const item of json) {
+                console.log(item);
+            }
+
+        })
+        .catch((error) => {
+            document.getElementById("id").textContent = error
+            document.getElementById("name").textContent = error
+            document.getElementById("price").textContent = error
+        })
+        .finally(() => {
+            console.log('proses selesai');
+        })
+
+
+
+    /* format mata uang */
+    const moneyFormat = (value) => {
+        let val = "Rp. " + (value / 1).toFixed(2).replace(".", ",");
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+</script>
+
+</html>

@@ -26,10 +26,15 @@
         }
 
         const ajax = new XMLHttpRequest();
-        ajax.open("GET", 'api/responses.json');
+        /* // state
+            AJAX memiliki tahapan state, dimana kita bisa mendapatkan banyak sekali state di Ajax menggunakan property readyState
+            Property readyState mengembalikan nilai number, dimana tiap number merupakan representasi dari statenya
+        */
+        ajax.onreadystatechange = function () {
+            console.log(`Ready state change ${ajax.readyState}`);
+        }
 
-        ajax.send();
-
+        ajax.open("GET", 'api/response.json');
         ajax.addEventListener("load", function () {
             //    check response status code
             if (ajax.status == 200) {
@@ -41,6 +46,7 @@
                 })
             }
         })
+        ajax.send();
     </script>
 </body>
 

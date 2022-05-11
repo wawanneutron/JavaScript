@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+
+<body>
+    <script>
+        /* Async digunakan untuk menandakan bahwa Function tersebut adalah Async, dan mengembalikan Promise
+        Dengan menggunakan Async, kita tidak perlu membuat Promise secara manual lagi
+        */
+
+        // return Promise<String>
+        const getProductPromise = () => {
+            return new Promise((resolve) => {
+                let request = new Request("../api/product.json", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "Application/json"
+                    }
+                });
+                const res = fetch(request);
+                resolve(res);
+            })
+        }
+        getProductPromise()
+            .then((product) => {
+                return product.json()
+            })
+            .then((json) => {
+                console.log(json.name);
+            })
+
+
+        /* 
+        Async
+        */
+        // return Promise<String> - menggunakan Async
+        async function getProductAsync() {
+            let request = new Request("../api/product.json", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "Application/json"
+                }
+            });
+
+            return fetch(request);
+        }
+
+        getProductAsync()
+            .then((response) => {
+                return response.json()
+            })
+            .then(json => console.log(json.price))
+    </script>
+</body>
+
+</html>

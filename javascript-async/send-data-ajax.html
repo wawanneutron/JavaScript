@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data With Ajax</title>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password :</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <button type="submit" id="login">Login</button>
+    </form>
+    <h1 id="response"></h1>
+</body>
+
+<script>
+    function doLogin(event) {
+        const method = "POST";
+        const url = "https://hookb.in/zrLPdko0rJHgm6kn8njp";
+
+        const ajax = new XMLHttpRequest();
+        ajax.open(method, url);
+        ajax.onload = function () {
+            const response = document.getElementById("response");
+            responseObj = JSON.parse(ajax.responseText)
+            console.log(responseObj);
+            if (responseObj.success) {
+                response.innerText = 'Send Data Successfuly'
+            }
+        }
+        ajax.setRequestHeader('Content-Type', 'aplication/json');
+        const json = {
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        }
+        ajax.send(JSON.stringify(json));
+        event.preventDefault();
+
+    }
+
+    document.getElementById("login").onclick = doLogin;
+</script>
+
+</html>
