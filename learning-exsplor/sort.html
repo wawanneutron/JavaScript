@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort</title>
+</head>
+
+<body>
+  <script>
+    //** Sorting Array String **//
+
+    // sort sesuai abjad
+    const numbers = ["f", "d", "b", "a", "g", "e", "c", ];
+
+    numbers.sort((a, b) => {
+      if (a < b) {
+        return -1;
+      } else if (a > b) {
+        return 1;
+      }
+    });
+    console.log(numbers);
+    // output ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+    // sort sesuai abjad terbalik
+    const numbers2 = ["f", "d", "b", "a", "g", "e", "c", ];
+
+    numbers2.sort((a, b) => {
+      if (a > b) {
+        return -1;
+      } else if (a > b) {
+        return 1;
+      }
+    });
+    console.log(numbers2);
+    // output ['g', 'f', 'e', 'd', 'c', 'b', 'a']
+
+
+    const names = ["Darui", "Bee", "Naruto", "Ada", "Sasuke", "Baki", "A"];
+    console.log(names.sort());
+    // output ['A', 'Ada', 'Baki', 'Bee', 'Darui', 'Naruto', 'Sasuke']
+
+
+    // Lexicographical order
+    const str = ["aab", "ba", "aac", "bab", "aaa", "Aab", "aaaa"];
+    console.log(str.sort());
+    /*  
+    outuput ['Aab', 'aaa', 'aaaa', 'aab', 'aac', 'ba', 'bab']
+      "Aab" // Huruf depan Besar "A" lebih diutamakan
+      "aa|a"
+      "aa|aa" // Is equal to "aaa" but is longer
+      "aa|b" // The 3rd char 'b' comes the third char 'a' in the strings above.
+      "aa|c" // The last char 'c' comes after 'b'
+      "ba" // The first char 'b' comes after 'a' in the above strings
+      "bab"
+    */
+
+
+    //** Sorting Array Number **//
+
+    const scores = [11, 100, 200, 3, 9, 80, 19, 4, 20, 53];
+    console.log(scores.sort());
+    // output  [100, 11, 19, 20, 200, 3, 4, 53, 80, 9] //urutan salah
+
+    // sort in ascending order
+    scores.sort((a, b) => {
+      return a - b;
+    });
+    console.log(scores);
+    // output [3, 4, 9, 11, 19, 20, 53, 80, 100, 200]
+
+    // sort in descending order
+    scores.sort((a, b) => {
+      return b - a;
+    })
+    console.log(scores);
+    // [200, 100, 80, 53, 20, 19, 11, 9, 4, 3]
+
+
+    //** Sorting an Array of Object **//
+    let ranking = [{
+        name: "Eren",
+        scor: 76
+      },
+      {
+        name: "Mikasa",
+        scor: 65
+      },
+      {
+        name: "Levi",
+        scor: 85
+      },
+      {
+        name: "Armin",
+        scor: 98
+      },
+      {
+        name: "Budi",
+        scor: 77
+      }
+    ];
+    //sort in ascending order
+    // mengurutkan object berdasarkan scor terkecil
+    newRanking = ranking
+    newRanking.sort((a, b) => {
+      return a.scor - b.scor;
+    });
+    console.log(newRanking);
+
+    //sort in descending order
+    // mengurutkan object berdasarkan scor terbesar
+    ranking.sort((a, b) => {
+      return b.scor - a.scor;
+    });
+    console.log(ranking);
+
+    // sorting by names in lexicographical order.
+    ranking.sort((a, b) => {
+      // convert to uppercase
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+
+      if (nameA < nameB) {
+        return -1;
+      } else if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(ranking);
+  </script>
+</body>
+
+</html>
