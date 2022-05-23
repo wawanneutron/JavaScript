@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perulangan Pola | Bintang</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            pola ke 1 
+            *
+            * *
+            * * *
+            * * * *
+        */
+        const pola1 = (baris) => {
+            let pola = "";
+
+            for (let i = 1; i <= baris; i++) {
+                for (let j = 1; j <= i; j++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(pola1(10));
+
+
+
+        /* 
+            pola ke 2
+            * * * *
+            * * *
+            * *
+            * 
+         */
+        const pola2 = (baris) => {
+            let pola = "";
+
+            for (let i = 1; i <= baris; i++) {
+                for (let j = baris; j >= i; j--) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+
+        console.log(pola2(10));
+
+
+        /* 
+            pola ke 3
+                *
+              * *
+            * * *
+          * * * *
+        */
+        const pola3 = (baris) => {
+            let pola = "";
+
+            for (let i = 1; i <= baris; i++) {
+
+                for (let j = baris - 1; j >= i; j--) {
+                    pola += " ";
+                }
+                for (let k = 1; k <= i; k++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+
+        console.log(pola3(10));
+
+
+        /* 
+            pola ke 4
+                 *
+               * * * 
+             * * * * *
+           * * * * * * *
+         * * * * * * * * *
+        */
+        const pola4 = (baris) => {
+            let pola = "";
+
+            for (let i = 0; i <= baris; i++) {
+
+                for (let j = baris; j >= i; j--) {
+                    pola += " ";
+                }
+                for (let k = 1; k <= i * 2 - 1; k++) {
+                    pola += "*";
+                }
+
+
+                pola += "\n";
+            }
+
+            return pola
+        }
+
+        console.log(pola4(10));
+
+        /* 
+            pola ke 5
+                * * * * * * * * *
+                  * * * * * * * 
+                    * * * * *  
+                      * * *   
+                        *    
+        */
+
+        const pola5 = (baris) => {
+            let pola = "";
+            for (let i = 1; i <= baris; i++) {
+                for (let j = 1; j <= i; j++) {
+                    pola += " ";
+                }
+                for (let k = baris; k >= i; k--) {
+                    pola += "*";
+                }
+                for (let m = baris; m - 1 >= i; m--) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+
+            return pola;
+        }
+
+        console.log(pola5(10));
+
+
+        /* 
+            pola ke 6
+                 *
+               * * * 
+             * * * * *
+           * * * * * * *
+         * * * * * * * * *
+        * * * * * * * * * *
+         * * * * * * * * *
+           * * * * * * *
+             * * * * *   
+               * * *
+                *    
+        */
+        const pola6 = (baris) => {
+            let pola = "";
+
+            for (let a = 1; a <= baris; a++) {
+
+                for (let b = baris; b >= a; b--) {
+                    pola += " ";
+                }
+                for (let c = 1; c <= a; c++) {
+                    pola += "*";
+                }
+                for (let d = 1; d <= a - 1; d++) {
+                    pola += "*";
+                }
+
+                pola += "\n";
+            }
+
+            for (let a = 1; a <= baris; a++) {
+
+                for (let b = 1; b <= a; b++) {
+                    pola += " ";
+                }
+                for (let c = baris; c >= a; c--) {
+                    pola += "*";
+                }
+                for (let d = baris; d - 1 >= a; d--) {
+                    pola += "*";
+                }
+
+                pola += "\n";
+            }
+            return pola;
+        }
+
+        console.log(pola6(10));
+
+
+        /* 
+        dengan menggunakan cara perkalian
+
+        output :
+            *
+           ***
+          *****
+         *******
+        *********
+         *******
+          *****
+           ***
+            *
+        */
+        const diamond = (baris) => {
+            let pola = "";
+
+            // segitiga atas
+            for (let i = 1; i <= baris; i++) {
+                // print baris
+                for (let j = baris; j >= i; j--) {
+                    pola += " ";
+                }
+                // print star
+                for (let k = 1; k <= i * 2 - 1; k++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+
+            // segitiga bawah
+            for (let i = 1; i <= baris; i++) {
+                // print space
+                for (let j = 1; j <= i; j++) {
+                    pola += " ";
+                }
+                // print star
+                for (let k = (baris * 2 - i); k >= i; k--) {
+                    pola += "#"
+                }
+                pola += "\n";
+            }
+
+            return pola;
+        }
+
+        console.log(diamond(10));
+
+
+
+        /* 
+            pola bintang persegi
+            outuput: 
+                    *****
+                    *****
+                    *****
+                    *****
+                    *****
+        */
+        const bintangPersegi1 = (baris) => {
+            let pola = "";
+            for (let i = 1; i <= baris; i++) {
+                for (let j = 1; j <= baris; j++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(bintangPersegi1(10));
+
+
+        /* 
+            pola persegi berongga
+            output :
+                    *****
+                    *   *
+                    *   *
+                    *   *
+                    *****
+        */
+
+        const bintangPersegi2 = (baris) => {
+            let pola = "";
+            for (let i = 1; i <= baris; i++) {
+                for (j = 1; j <= baris; j++) {
+                    if (i === 1 || i === baris) {
+                        pola += "*";
+                    } else {
+                        if (j === 1 || j === baris - 0) {
+                            pola += "%"
+                        } else {
+                            pola += " ";
+                        }
+                    }
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+
+        console.log(bintangPersegi2(10));
+
+
+        /* 
+            segitiga berongga
+            output: 
+            *
+            **
+            * *
+            *  *
+            *   *
+            ******
+        */
+
+        const segitiga1 = (baris) => {
+            let pola = "";
+            for (let i = 1; i <= baris; i++) {
+                for (let j = 1; j <= i; j++) {
+                    if (i === baris) {
+                        pola += "&";
+                    } else {
+                        if (j === 1 || j === i - 0) {
+                            pola += "*";
+                        } else {
+                            pola += " ";
+                        }
+                    }
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(segitiga1(10));
+
+
+        /* 
+            segitiga berongga tengah
+            output :
+                       *
+                      * *
+                     *    *
+                    *      *
+                   **********
+        */
+
+        const segitiga2 = (baris) => {
+            let pola = "";
+            for (let i = 1; i <= baris; i++) {
+                // printing space
+                for (let j = baris; j >= i; j--) {
+                    pola += " ";
+                }
+                // printing star
+                for (let k = 0; k < 2 * i - 1; k++) {
+                    if (i == 1 || i == baris) {
+                        pola += "*";
+                    } else {
+                        if (k == 0 || k == 2 * i - 2) {
+                            pola += "*";
+                        } else {
+                            pola += " ";
+                        }
+                    }
+                }
+                // printing baris
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(segitiga2(10));
+
+
+        /* 
+        Hollow diamond
+        Output :
+            *
+           * *
+          *   *
+         *     *
+        *       *
+         *     *
+           *   *
+            * *
+             *
+        */
+
+        const hollowDiamond = (baris) => {
+            let pola = "";
+
+            // upsed diamond
+            for (let i = 1; i <= baris; i++) {
+                // printing spaces
+                for (let j = baris; j > i; j--) {
+                    pola += " ";
+                }
+                // printing star
+                for (let k = 0; k < i * 2 - 1; k++) {
+                    if (k === 0 || k === 2 * i - 2) {
+                        pola += "*";
+                    } else {
+                        pola += " ";
+                    }
+                }
+                pola += "\n";
+            }
+
+            // downside diamond
+            for (let i = 1; i <= baris - 1; i++) {
+                // printing spaces
+                for (let j = 1; j <= i; j++) {
+                    pola += " ";
+                }
+                // printing star
+                for (let k = (baris - i) * 2 - 1; k >= 1; k--) {
+                    if (k === 1 || k === (baris - i) * 2 - 1) {
+                        pola += "*";
+                    } else {
+                        pola += " ";
+                    }
+                }
+                pola += "\n";
+            }
+
+            return pola;
+        }
+        console.log(hollowDiamond(10));
+
+        /* 
+        Hourglass
+        output: 
+        *********
+         *******
+          *****
+           ***
+            *
+           ***
+          *****
+         *******
+        *********
+        */
+
+        const hourGlass = (baris) => {
+            let pola = "";
+
+            // upside triangle
+            for (let i = 1; i <= baris; i++) {
+                // printing space
+                for (let j = 1; j <= i; j++) {
+                    pola += " ";
+                }
+                // printing star
+                for (let k = (baris * 2 - i); k >= i; k--) {
+                    pola += "*"
+                }
+                pola += "\n";
+            }
+
+            // doenside triangle
+            for (let i = 1; i <= baris; i++) {
+                // printing space
+                for (let j = baris; j >= i; j--) {
+                    pola += " ";
+                }
+                // printing star
+                for (let k = 1; k <= i * 2 - 1; k++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+
+            return pola;
+        }
+
+        console.log(hourGlass(10));
+
+        /* 
+        Right pascal
+        output: 
+        *
+        **
+        ***
+        ****
+        *****
+        ****
+        ***
+        **
+        *
+        */
+
+        const rightPascal = (baris) => {
+            pola = "";
+            for (let i = 0; i <= baris; i++) {
+                for (let j = 0; j <= i; j++) {
+                    pola += "*";
+                }
+
+                pola += "\n";
+            }
+            for (let i = 0; i <= baris; i++) {
+                for (let j = baris; j > i; j--) {
+                    pola += "*";
+                }
+
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(rightPascal(10));
+
+        /* 
+        Left Pascal
+        output:
+            *
+           **
+          ***
+         ****
+        *****
+         ****
+          ***
+           **
+            *
+        */
+
+        const leftPascal = (baris) => {
+            pola += "";
+            for (let i = 0; i <= baris; i++) {
+                // printing space
+                for (let j = baris; j >= i; j--) {
+                    pola += " ";
+                }
+                for (let k = 1; k <= i; k++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            for (let i = 0; i <= baris; i++) {
+                // printing space
+                for (let j = 1; j <= i; j++) {
+                    pola += " ";
+                }
+                for (let k = baris; k >= i; k--) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(leftPascal(10));
+
+
+        /* 
+        Heart Star
+        output :
+         ***   ***
+        ***** *****
+        ***********
+         *********
+          *******
+           *****
+            ***
+             *
+        */
+
+        const heartStar = (baris) => {
+            let pola = "";
+            // upper part
+            for (let i = baris / 2; i < baris; i += 2) {
+                // print first space
+                for (let j = 1; j < baris - i; j += 2) {
+                    pola += " ";
+                }
+                // print first star
+                for (let j = 1; j < i + 1; j++) {
+                    pola += "*"
+                }
+                // print second space
+                for (let j = 1; j < baris - i + 1; j++) {
+                    pola += " ";
+                }
+                // print second star
+                for (let j = 1; j < i + 1; j++) {
+                    pola += "*"
+                }
+                pola += "\n";
+            }
+            // lower part
+            // inaverted pyramid
+            for (let i = baris; i > 0; i--) {
+                // print space
+                for (let j = 0; j < baris - i; j++) {
+                    pola += " ";
+                }
+                // print star
+                for (let j = 1; j < i * 2; j++) {
+                    pola += "*";
+                }
+                pola += "\n";
+            }
+            return pola;
+        }
+        console.log(heartStar(10));
+    </script>
+</body>
+
+</html>
