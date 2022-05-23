@@ -1,18 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>While Loop</title>
-  </head>
-  <body>
-    <script>
-      let counter = 1;
-      while (counter <= 10) {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>While Loop</title>
+</head>
+
+<body>
+  <script>
+    /* counted Loop perulangan yang memberikan counter didalamnya
+    perulangan yang sudah jelas dan sudah tentu banyak perulangannya */
+    const countedLoop = (numb) => {
+      let counter = 0;
+      while (counter < numb) {
         document.writeln(`<p>perulangan while ke ${counter}</p>`);
         counter++;
       }
-    </script>
-  </body>
+    }
+
+    /* 
+    Perulangan while merupakan perulangan yang termasuk dalam perulangan uncounted loop.
+    Perulangan while juga dapat menjadi perulangan yang counted loop dengan memberikan counter di dalamnya.
+     */
+    const unCountedLoop = () => {
+      let ulangi = confirm('Apakah anda mau mengulangi');
+      let counter = 0;
+
+      while (ulangi) {
+        counter++;
+        ulangi = confirm('Ulangi lagi ?');
+      }
+      document.writeln(`perulangan sudah dilakukan sebanyak ${counter} kali`)
+    }
+
+    const loopStar = () => {
+      let alert = confirm('Apakah mau mengulangi');
+      let count = 0;
+
+      while (alert) {
+        count++;
+        let star = "*".repeat(count);
+        console.log(`${count} : ${star}`);
+        alert = confirm('ulangi lagi ?');
+      }
+    }
+
+    countedLoop(10);
+    // unCountedLoop();
+    loopStar()
+  </script>
+</body>
+
 </html>
